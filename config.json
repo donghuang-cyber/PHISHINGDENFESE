@@ -1,0 +1,39 @@
+{
+    "model": {
+      "name": "albert-base-v2",
+      "num_labels": 2,
+      "pretrained_model_path": "/models/checkpoints/best_albert2_model"
+    },
+    "training": {
+      "epochs": 15,
+      "batch_size": 16,
+      "learning_rate": 2e-5,
+      "optimizer": "AdamW",
+      "weight_decay": 0.01,
+      "epsilon": 1e-8,
+      "patience": 2,
+      "early_stopping": true,
+      "save_best_model": true
+    },
+    "data": {
+      "train_data_path": "/data/combined_dataset.json",
+      "test_data_paths": [
+        "/data/test_datasets/dataset1_test_10_90.json",
+        "/data/test_datasets/dataset2_test_10_90.json",
+        "/data/test_datasets/dataset3_test_10_90.json"
+      ]
+    },
+    "device": {
+      "cuda_enabled": true,
+      "device_name": "cuda"
+    },
+    "logging": {
+      "log_dir": "/logs",
+      "log_file": "training.log"
+    },
+    "tokenizer": {
+      "tokenizer_name": "albert-base-v2",
+      "max_length": 512
+    }
+  }
+  
